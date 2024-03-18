@@ -1,0 +1,113 @@
+# puzzle prompt: https://adventofcode.com/2019/day/3
+
+import time
+import sys
+sys.path.insert(0,"..")
+
+from base.advent import *
+from collections import defaultdict
+
+class Solution(InputAsCSVSolution):
+    _year = 2019
+    _day = 3
+
+    def get_manhattan_distance(self, position):
+        return abs(position[0]) + abs(position[1])
+
+    def get_wire_positions(self, wire):
+        x, y = 0, 0   
+        positions = set()
+
+        for i in range(len(wire)):
+            for _ in range(int(wire[i][1:])):
+                direction = wire[i][0]
+                
+                if   direction == "R":
+                    x +=1
+                elif direction == "L":
+                    x -=1
+                elif direction == "D":
+                    y +=1
+                elif direction == "U":
+                    y -=1
+                
+                positions.add((x, y))
+        
+        return positions
+
+    def get_closest_intersection(self, lines):
+        wire_1 = lines[0]
+        wire_2 = lines[1]
+        
+        positions_1 = self.get_wire_positions(wire_1)
+        positions_2 = self.get_wire_positions(wire_2)
+
+        crossings = positions_1.intersection(positions_2)
+        
+        return min(self.get_manhattan_distance(position) for position in crossings)
+
+    def get_distance_for_crossings(self, wire, crossings):
+        crossing = defaultdict(int)
+        distance = 0
+        x, y = 0, 0
+        
+        for i in range(len(wire)):
+            for _ in range(int(wire[i][1:])):
+                direction = wire[i][0]
+                
+                if   direction == "R":
+                    x +=1
+                elif direction == "L":
+                    x -=1
+                elif direction == "D":
+                    y +=1
+                elif direction == "U":
+                    y -=1
+                
+                distance += 1
+                
+                if (x, y) in crossings:
+                    crossing[(x, y)] = distance
+
+        return crossing
+
+    def minimize_steps_taken(self, lines):
+        wire_1 = lines[0]
+        wire_2 = lines[1]
+
+        x1, y1, x2, y2 = 0, 0, 0, 0
+
+        positions_1 = self.get_wire_positions(wire_1)
+        positions_2 = self. get_wire_positions(wire_2)
+
+        crossings = positions_1.intersection(positions_2)
+
+        crossing_distance_1 = self.get_distance_for_crossings(wire_1, crossings)
+        crossing_distance_2 = self.get_distance_for_crossings(wire_2, crossings)
+
+        return min(crossing_distance_1[crossing] + crossing_distance_2[crossing] for crossing in crossings)
+
+    def part_1(self):
+        start_time = time.time()
+
+        res = self.get_closest_intersection(self.input)
+
+        end_time = time.time()
+
+        self.solve("1", res, (end_time - start_time))
+
+    def part_2(self):
+        start_time = time.time()
+
+        res = self.minimize_steps_taken(self.input)
+
+        end_time = time.time()
+
+        self.solve("2", res, (end_time - start_time))
+
+if __name__ == '__main__':
+    solution = Solution()
+
+    solution.part_1()
+    
+    solution.part_2()

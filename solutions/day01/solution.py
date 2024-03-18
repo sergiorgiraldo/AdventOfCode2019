@@ -15,6 +15,7 @@ class Solution(InputAsLinesSolution):
         
         for line in lines:
             mass = int(line)
+            
             computed_fuel = int(mass / 3) - 2
             fuel_requirement += max(0, computed_fuel)
         
@@ -25,12 +26,14 @@ class Solution(InputAsLinesSolution):
         
         for line in lines:
             mass = int(line)
+            
             fuel_requirement += self.get_total_fuel_requirement(mass)
         
         return fuel_requirement
 
     def get_total_fuel_requirement(self, mass):
         total_fuel_required = self.get_fuel_requirement([mass])
+
         if total_fuel_required == 0:
             return 0
         else:
