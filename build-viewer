@@ -29,4 +29,13 @@ if __name__ == "__main__":
     contents_day += "<h1>Day " + __day + "</h1>\n"
     contents_day += "<pre>\n" + contents_script + "\n</pre>"
     Path(__page).write_text(contents_day)
-
+    
+    __path = os.path.join("solutions", f"base")
+    __filename = os.path.join(__path, "computer.py")
+    contents_computer = Path(__filename).read_text()
+    contents_intcode = "<style>pre{font-size: large;}</style>\n"
+    contents_intcode += "<h1>IntCode Computer</h1>\n"
+    contents_intcode += "<pre>\n" + contents_computer + "\n</pre>"
+    __page = os.path.join("viewer", f"computer.html")
+    with open(__page, 'w') as file:
+        file.write(contents_intcode)

@@ -17,7 +17,7 @@
         _year: int
         _day: int
     
-        def __init__(cls, lines=False, csv=False, two_dimensional=False):
+        def __init__(cls, lines=False, csv=False, two_dimensional=False, int_csvline=False):
             if lines:
                 cls.input = cls.read_input().splitlines()
             else:
@@ -30,8 +30,13 @@
                         lines = cls.read_input().splitlines()
     
                         cls.input = [list(line) for line in lines]
-                    else:  # if string:
-                        cls.input = cls.read_input()
+                    else:  
+                        if int_csvline: #single line
+                            line = cls.read_input().strip()
+                            cls.input = [int(d) for d in line.split(",")]
+    
+                        else:  # if string:
+                            cls.input = cls.read_input()
     
         @property
         def year(self):
@@ -72,7 +77,7 @@
             return data
     
         @final
-        def save(self, part, res):
+        def save(self, part, res, tm):
             answer_path = Path(
                 Path(__file__).parent.parent.parent,
                 f"ans{part}.txt",
@@ -82,14 +87,15 @@
                 open(answer_path, 'w').close()  # always overwrite
     
             with (answer_path.open("a")) as f:
-                f.write(res)
+                f.write(res + "\n")
+                f.write(int(tm * 1000).__str__() + " msecs")
     
         @final
         def submit(self, part, res):
             submit(res, part=part, day=self.day, year=self.year)
     
-        def solve(self, part, res, submit=True):
-            self.save(part, str(res))
+        def solve(self, part, res, tm, submit=True):
+            self.save(part, str(res), tm)
     
             print(f"Part {part} :: {res}")
     
@@ -97,35 +103,37 @@
                 self.submit(part="a" if part == "1" else "b", res=res)
     
     # Concrete Solutions
-    
-    
     class InputAsStringSolution(BaseSolution):
         def __init__(self):
-            super().__init__(lines=False, csv=False, two_dimensional=False)
+            super().__init__(lines=False, csv=False, two_dimensional=False, int_csvline=False)
     
         def dummy(self):
             pass
-    
     
     class InputAsLinesSolution(BaseSolution):
         def __init__(self):
-            super().__init__(lines=True, csv=False, two_dimensional=False)
+            super().__init__(lines=True, csv=False, two_dimensional=False, int_csvline=False)
     
         def dummy(self):
             pass
-    
-    
+        
     class InputAsCSVSolution(BaseSolution):
         def __init__(self):
-            super().__init__(lines=False, csv=True, two_dimensional=False)
+            super().__init__(lines=False, csv=True, two_dimensional=False, int_csvline=False)
     
         def dummy(self):
             pass
     
+    class InputAsIntCSVLineSolution(BaseSolution):
+        def __init__(self):
+            super().__init__(lines=False, csv=False, two_dimensional=False, int_csvline=True)
+    
+        def dummy(self):
+            pass
     
     class InputAs2DSolution(BaseSolution):
         def __init__(self):
-            super().__init__(lines=False, csv=False, two_dimensional=True)
+            super().__init__(lines=False, csv=False, two_dimensional=True, int_csvline=False)
     
         def dummy(self):
             pass    

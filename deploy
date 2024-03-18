@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./build-viewer $1
+# ./build-viewer $1
 
 git add --all . 
 
