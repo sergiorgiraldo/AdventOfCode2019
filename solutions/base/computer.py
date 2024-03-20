@@ -104,12 +104,15 @@ class Computer:
                 return
             
     def parse(self, op):
-        mode3, op = divmod(op, 10000)
-        mode2, op = divmod(op, 1000)
-        mode1, op = divmod(op, 100)
+        try:
+            mode3, op = divmod(op, 10000)
+            mode2, op = divmod(op, 1000)
+            mode1, op = divmod(op, 100)
 
-        return op, [mode1, mode2, mode3]
-
+            return op, [mode1, mode2, mode3]
+        except:
+            raise Exception(f"Cant parse opcode: {op}")
+        
     def get(self, mode, param):
         if mode == IMMEDIATE:
             return param
