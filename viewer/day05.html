@@ -1,3 +1,6 @@
+<style>pre{font-size: large;}</style>
+<h1>Day 05</h1>
+<pre>
 # puzzle prompt: https://adventofcode.com/2019/day/5
 
 import time
@@ -19,7 +22,7 @@ class Solution(InputAsIntCSVLineSolution):
         while True:
             try:
                 computer.run()
-            except OutputEmmitted:
+            except OutputInterrupt:
                 output = computer.outputs[-1]
                 if output != 0:
                     return output
@@ -48,3 +51,4 @@ if __name__ == '__main__':
     solution.part_1()
     
     solution.part_2()
+</pre>

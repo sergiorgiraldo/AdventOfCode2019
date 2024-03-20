@@ -16,40 +16,40 @@ HALT            = 99
 POSITION        = 0
 IMMEDIATE       = 1
 
-class InputInterrupt(Exception):
+class InputInterrupted(Exception):
     pass
 
-class OutputInterrupt(Exception):
+class OutputEmmitted(Exception):
     pass
 
 class Computer:
     def __init__(self, code_):
         code = copy(code_) #always operate in own copy of code
-        self.code = copy(code)
+        self.code = code
 
         self.ip = 0
         self.max_ip = len(code)
         
         self.done = False
         
-        self.inputs = deque()
+        self.inputs  = deque()
         self.outputs = deque()
 
     def run(self):
         while True:
-            op, modes = self.decode_op(self.code[self.ip])
+            op, modes = self.parse(self.code[self.ip])
             params = self.code[self.ip + 1: self.ip + 4]
             
             if op == ADD:
-                p1 = self.get_param(modes[0], params[0])
-                p2 = self.get_param(modes[1], params[1])
+                p1 = self.get(modes[0], params[0])
+                p2 = self.get(modes[1], params[1])
                 out = params[2]
                 self.code[out] = p1 + p2
                 self.ip += 4
 
             if op == MUL:
-                p1 = self.get_param(modes[0], params[0])
-                p2 = self.get_param(modes[1], params[1])
+                p1 = self.get(modes[0], params[0])
+                p2 = self.get(modes[1], params[1])
                 out = params[2]
                 self.code[out] = p1 * p2
                 self.ip += 4
@@ -59,42 +59,42 @@ class Computer:
                 try:
                     self.code[out] = self.inputs.popleft()
                 except IndexError:
-                    raise InputInterrupt
+                    raise InputInterrupted(f"No input found at index {out}")
                 else:
                     self.ip += 2
 
             if op == OUTPUT:
-                p1 = self.get_param(modes[0], params[0])
+                p1 = self.get(modes[0], params[0])
                 self.outputs.append(p1)
                 self.ip += 2
-                raise OutputInterrupt
+                raise OutputEmmitted
             
             if op == JUMP_IF_TRUE:
-                p1 = self.get_param(modes[0], params[0])
-                p2 = self.get_param(modes[1], params[1])
+                p1 = self.get(modes[0], params[0])
+                p2 = self.get(modes[1], params[1])
                 if p1:
                     self.ip = p2
                 else:
                     self.ip += 3
 
             if op == JUMP_IF_FALSE:
-                p1 = self.get_param(modes[0], params[0])
-                p2 = self.get_param(modes[1], params[1])
+                p1 = self.get(modes[0], params[0])
+                p2 = self.get(modes[1], params[1])
                 if not p1:
                     self.ip = p2
                 else:
                     self.ip += 3
 
             if op == LESS_THAN:
-                p1 = self.get_param(modes[0], params[0])
-                p2 = self.get_param(modes[1], params[1])
+                p1 = self.get(modes[0], params[0])
+                p2 = self.get(modes[1], params[1])
                 out = params[2]
                 self.code[out] = 1 if p1 < p2 else 0
                 self.ip += 4
 
             if op == EQUALS:
-                p1 = self.get_param(modes[0], params[0])
-                p2 = self.get_param(modes[1], params[1])
+                p1 = self.get(modes[0], params[0])
+                p2 = self.get(modes[1], params[1])
                 out = params[2]
                 self.code[out] = 1 if p1 == p2 else 0
                 self.ip += 4
@@ -103,17 +103,20 @@ class Computer:
                 self.done = True
                 return
             
-    @staticmethod
-    def decode_op(op):
-        mode2 = op // 1000
-        op -= mode2 * 1000
-        mode1 = op // 100
-        op -= mode1 * 100
-        return op, [mode1, mode2]
+    def parse(self, op):
+        mode3, op = divmod(op, 10000)
+        mode2, op = divmod(op, 1000)
+        mode1, op = divmod(op, 100)
 
-    def get_param(self, mode, param):
+        return op, [mode1, mode2, mode3]
+
+    def get(self, mode, param):
         if mode == IMMEDIATE:
             return param
         if mode == POSITION:
-            return self.code[param]
+            try:
+                return self.code[param]
+            except IndexError:
+                raise (f"No param found at position {param}")
+            
         raise ValueError(f"Unknown mode: {mode}")

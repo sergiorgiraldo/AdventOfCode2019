@@ -1,0 +1,95 @@
+# puzzle prompt: https://adventofcode.com/2019/day/6
+
+import time
+import sys
+sys.path.insert(0,"..")
+
+from base.advent import *
+from collections import defaultdict
+
+class Solution(InputAsLinesSolution):
+    _year = 2019
+    _day = 6
+
+    CURRENT_ORBIT_POSITION = 'YOU'
+    SANTA_ORBIT_POSITION = 'SAN'
+
+    def count_orbits(self, lines):
+        map, _ = self.parse(lines)
+
+        orbit_counts = 0
+        
+        for orbiting_object in map:
+            orbit_counts += self.count_orbits_from_object(orbiting_object, map)
+        
+        return orbit_counts
+
+    def count_orbits_from_object(self, orbiting_object, map_data):
+        object_orbited_around = map_data[orbiting_object]
+
+        return 1 if object_orbited_around == "COM" else 1 + self.count_orbits_from_object(object_orbited_around, map_data)   
+
+    def find_minimum_orbital_transfers(self, lines):
+        _, map = self.parse(lines)
+
+        shortest_path = self.find_shortest_path(map, "YOU", "SAN", [])
+
+        return len(shortest_path) - 3 # exclude YOU and SAN and count only the hops
+                                      # e.g. ['YOU', 'A', 'B', 'C', 'D', 'E', 'SAN'] -> 4  
+
+    def find_shortest_path(self, map, start_object, end_object, path):
+        path = path + [start_object]
+
+        if start_object == end_object:
+            return path
+
+        if start_object not in map:
+            return None
+
+        shortest_path = None
+
+        for orbiting_object in map[start_object]:
+            if orbiting_object not in path:
+                new_path_explored = self.find_shortest_path(map, orbiting_object, end_object, path)
+                if new_path_explored:
+                    if not shortest_path or len(new_path_explored) < len(shortest_path):
+                        shortest_path = new_path_explored
+
+        return shortest_path
+
+    def parse(self, lines):
+        map = {}
+        map_bidirectional = defaultdict(list)
+        
+        for line in lines:
+            object_orbited_around, object_orbiting = line.split(")")
+            map[object_orbiting] = object_orbited_around
+            map_bidirectional[object_orbiting].append(object_orbited_around)
+            map_bidirectional[object_orbited_around].append(object_orbiting)
+        
+        return map, map_bidirectional
+
+    def part_1(self):
+        start_time = time.time()
+
+        res = self.count_orbits(self.input)
+
+        end_time = time.time()
+
+        self.solve("1", res, (end_time - start_time))
+
+    def part_2(self):
+        start_time = time.time()
+
+        res = self.find_minimum_orbital_transfers(self.input)
+
+        end_time = time.time()
+
+        self.solve("2", res, (end_time - start_time))
+
+if __name__ == '__main__':
+    solution = Solution()
+
+    solution.part_1()
+    
+    solution.part_2()
