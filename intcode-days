@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "TESTING ALL DAYS TO CHECK IF MY COMPUTER IS GOOD"
+
+echo "\n>>> DAY 02"
+cd ~/source/AdventOfCode2019/solutions/day02
+python -m solution
+
+echo "\n>>> DAY 05"
+cd ~/source/AdventOfCode2019/solutions/day05
+python -m solution
+
+echo "\n>>> DAY 07"
+cd ~/source/AdventOfCode2019/solutions/day07
+python -m solution
