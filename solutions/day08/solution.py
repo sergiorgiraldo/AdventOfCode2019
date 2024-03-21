@@ -39,18 +39,13 @@ class Solution(InputAsStringSolution):
 
         layer = -1
 
-        # i stack pixels per layer, .e.g. suppose image is 3 X 2, data would be `ABCDEFMPQRSTUVWXYZ`
-        #layers will be
-        # layer 0: [A M U]
-        # layer 1: [B P V]
-        # layer 2: [C Q W]
-        # layer 3: [D R X]
-        # layer 4: [E S Y]
-        # layer 5: [F T Z]
         for i in range(len(raw)):
             if not i % size:
                 layer += 1
             layers[layer].append(raw[i])
+        print (layers[0])
+        print ()
+        print (layers[1])
 
         return layers
 
