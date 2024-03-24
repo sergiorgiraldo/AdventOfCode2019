@@ -1,4 +1,3 @@
-from typing import List
 from collections import deque
 from copy import copy
 
@@ -20,9 +19,9 @@ IMMEDIATE       = 1
 RELATIVE        = 2
 
 #offsets
-OFFSET_RELATIVE = {ADD:2, MUL:2, INPUT:0, LESS_THAN:2,EQUALS:2}
+RELATIVE_OFFSET = {ADD:2, MUL:2, INPUT:0, LESS_THAN:2,EQUALS:2}
 
-class InputInterrupt(Exception):
+class InputInterrupted(Exception):
     pass
 
 class OutputEmmitted(Exception):
@@ -30,13 +29,16 @@ class OutputEmmitted(Exception):
 
 class Computer:
     def __init__(self, code_):
-        code = copy(code_)              #always operate in own copy of code
-        self.code = code + [0] * 10000  #req: computer's available memory should be much larger than the initial program
+        code      = copy(code_)          # always operate in own copy of code
+        self.code = code + [0] * 10_000  # rqrmnt:available memory should be larger than the initial program
+        
         self.ip = 0
         self.relative = 0
-        self.max_ip = len(code)
-        self.inputs = deque()
+        self.max_ip = len(code)          # we get the ips from the code given (code != self.code)
+        
+        self.inputs  = deque()
         self.outputs = deque()
+        
         self.done = False
 
     def run(self):
@@ -64,7 +66,7 @@ class Computer:
                 try:
                     self.code[out] = self.inputs.popleft()
                 except IndexError:
-                    raise InputInterrupt
+                    raise InputInterrupted
                 else:
                     self.ip += 2
             
@@ -113,8 +115,7 @@ class Computer:
                 self.done = True
                 return
 
-    @staticmethod
-    def parse(op):
+    def parse(self, op):
         try:
             mode3, op = divmod(op, 10000)
             mode2, op = divmod(op, 1000)
@@ -138,5 +139,24 @@ class Computer:
             raise ValueError(f"Unknown mode: {mode}")
   
     def produce(self, op, params, modes):
-        offset = OFFSET_RELATIVE[op]
-        return params[offset] if modes[offset] != RELATIVE else self.relative + params[offset]
+        try:
+            offset = RELATIVE_OFFSET[op]
+            return params[offset] if modes[offset] != RELATIVE else self.relative + params[offset]
+        except:
+            raise Exception(f"Cant determine output for: op-> {op} / params-> {params} / modes-> {modes}")
+
+if __name__ == "__main__":
+    code_ = input("Enter the program as comma separated values\n>>> ")
+    code = [int(op) for op in code_.split(",")]
+    computer = Computer(code)
+    
+    input_value = input("Enter the input as comma separated values\n>>> ")
+    if input_value != "":
+        for i in input_value.split(","):
+            computer.inputs.append(int(i))
+    
+    while not computer.done:
+        try:
+            computer.run()
+        except OutputEmmitted:
+            print(computer.outputs[-1])
