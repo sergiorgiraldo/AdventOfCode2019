@@ -14,30 +14,27 @@ class Solution(InputAsLinesSolution):
     _year = 2019
     _day = 6
 
-    CURRENT_ORBIT_POSITION = 'YOU'
-    SANTA_ORBIT_POSITION = 'SAN'
-
     def count_orbits(self, lines):
         map, _ = self.parse(lines)
 
         orbit_counts = 0
         
-        for orbiting_object in map:
-            orbit_counts += self.count_orbits_from_object(orbiting_object, map)
+        for object in map:
+            orbit_counts += self.count_orbits_from_object(map, object)
         
         return orbit_counts
 
-    def count_orbits_from_object(self, orbiting_object, map_data):
-        object_orbited_around = map_data[orbiting_object]
+    def count_orbits_from_object(self, map, object):
+        object_orbited_around = map[object]
 
-        return 1 if object_orbited_around == "COM" else 1 + self.count_orbits_from_object(object_orbited_around, map_data)   
+        return 1 if object_orbited_around == "COM" else 1 + self.count_orbits_from_object(map, object_orbited_around)
 
     def find_minimum_orbital_transfers(self, lines):
         _, map = self.parse(lines)
 
         shortest_path = self.find_shortest_path(map, "YOU", "SAN", [])
 
-        return len(shortest_path) - 3 # exclude YOU and SAN and count only the hops
+        return len(shortest_path) - 3 # count only the hops excluding YOU and SAN
                                       # e.g. ['YOU', 'A', 'B', 'C', 'D', 'E', 'SAN'] -> 4  
 
     def find_shortest_path(self, map, start_object, end_object, path):
@@ -54,6 +51,7 @@ class Solution(InputAsLinesSolution):
         for orbiting_object in map[start_object]:
             if orbiting_object not in path:
                 new_path_explored = self.find_shortest_path(map, orbiting_object, end_object, path)
+                
                 if new_path_explored:
                     if not shortest_path or len(new_path_explored) < len(shortest_path):
                         shortest_path = new_path_explored
