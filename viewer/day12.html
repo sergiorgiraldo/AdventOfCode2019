@@ -8,11 +8,11 @@ import sys
 sys.path.insert(0,"..")
 
 from base.advent import *
+from functools import reduce
 from math import gcd
 import re
 
 class Moon:
-
     def __init__(self, position, velocity=(0, 0, 0)):
         self.position = position
         self.velocity = velocity
@@ -31,12 +31,10 @@ class Moon:
         self.position = tuple([velocity + position for velocity, position in zip(self.position, self.velocity)])
 
     def get_total_energy(self):
-        potential_energy = sum([abs(element) for element in self.position])
-        kinetic_energy = sum([abs(element) for element in self.velocity])
-        return potential_energy * kinetic_energy
+        potential_energy = reduce(lambda acc, curr: acc + abs(curr), self.position, 0)
+        kinetic_energy   = reduce(lambda acc, curr: acc + abs(curr), self.velocity, 0)
 
-    def get_position_hash(self):
-        return hash(self.position)
+        return potential_energy * kinetic_energy
 
 class Solution(InputAsLinesSolution):
     _year = 2019
@@ -45,21 +43,20 @@ class Solution(InputAsLinesSolution):
     def parse(self, lines):
         pattern = re.compile(r"<x=(\-?\d+), y=(\-?\d+), z=(\-?\d+)>")
 
-        m = pattern.match(lines[0])
-        io_initial_position = (int(m.group(1)), int(m.group(2)), int(m.group(3)))
-        
-        m = pattern.match(lines[1])
-        europa_initial_position = (int(m.group(1)), int(m.group(2)), int(m.group(3)))
-        
-        m = pattern.match(lines[2])
-        ganymede_initial_position = (int(m.group(1)), int(m.group(2)), int(m.group(3)))
-        
-        m = pattern.match(lines[3])
-        callisto_initial_position = (int(m.group(1)), int(m.group(2)), int(m.group(3)))
-
+        io = pattern.match(lines[0])
+        io_initial_position = (int(io.group(1)), int(io.group(2)), int(io.group(3)))
         self.io = Moon(io_initial_position)
+        
+        europa = pattern.match(lines[1])
+        europa_initial_position = (int(europa.group(1)), int(europa.group(2)), int(europa.group(3)))
         self.europa = Moon(europa_initial_position)
+        
+        ganymede = pattern.match(lines[2])
+        ganymede_initial_position = (int(ganymede.group(1)), int(ganymede.group(2)), int(ganymede.group(3)))
         self.ganymede = Moon(ganymede_initial_position)
+        
+        callisto = pattern.match(lines[3])
+        callisto_initial_position = (int(callisto.group(1)), int(callisto.group(2)), int(callisto.group(3)))
         self.callisto = Moon(callisto_initial_position)
 
         self.initial_positions  = [io_initial_position, europa_initial_position, ganymede_initial_position, callisto_initial_position]
@@ -72,17 +69,17 @@ class Solution(InputAsLinesSolution):
             self.callisto   : [self.io, self.europa, self.ganymede],
     }
 
-    def simulate_moons_motion(self, steps):
-        for _ in range(steps):
+    def simulate(self, cycles):
+        for _ in range(cycles):
             for moon in self.jupiter_moons:
                 moon.get_next_velocity(self.surrounding_moons[moon])
             for moon in self.jupiter_moons:
                 moon.get_next_position()
 
-    def get_total_energy(self, lines, range):
+    def get_total_energy(self, lines, cycles):
         self.parse(lines)
 
-        self.simulate_moons_motion(range)
+        self.simulate(cycles)
 
         total_system_energy = sum([moon.get_total_energy() for moon in self.jupiter_moons])
         
@@ -109,34 +106,33 @@ class Solution(InputAsLinesSolution):
 
         while True:
             self.update_positions_and_velocities(positions, velocities)
-            position_hash = hash(tuple(zip(positions, velocities)))
-            if position_hash in past_positions:
+            position = hash(tuple(zip(positions, velocities)))
+            if position in past_positions:
                 return step
             else:
-                past_positions.add(position_hash)
+                past_positions.add(position)
                 step += 1
 
-    def find_first_repeating_state(self, lines):
-        def lcd(a, b):
-            return abs(a * b) // gcd(a, b)
-        
+    def find_first_repeating_state(self, lines):        
         self.parse(lines)
 
-        x_positions = [moon[0] for moon in self.initial_positions]
-        y_positions = [moon[1] for moon in self.initial_positions]
-        z_positions = [moon[2] for moon in self.initial_positions]
+        x_positions     = [moon[0] for moon in self.initial_positions]
+        x_velocities    = [0] * 4
+        x_period        = self.get_minimal_period(x_positions, x_velocities)
 
-        x_velocities = [0] * 4
-        y_velocities = [0] * 4
-        z_velocities = [0] * 4
+        y_positions     = [moon[1] for moon in self.initial_positions]
+        y_velocities    = [0] * 4
+        y_period        = self.get_minimal_period(y_positions, y_velocities)
+        
+        z_positions     = [moon[2] for moon in self.initial_positions]
+        z_velocities    = [0] * 4
+        z_period        = self.get_minimal_period(z_positions, z_velocities)
 
-        x_period = self.get_minimal_period(x_positions, x_velocities)
-        y_period = self.get_minimal_period(y_positions, y_velocities)
-        z_period = self.get_minimal_period(z_positions, z_velocities)
+        #https://math.stackexchange.com/a/1101033
+        #find lcm from 3 numbers
+        common_period = (x_period * y_period * z_period)/gcd(x_period * y_period, x_period * z_period, y_period * z_period)
 
-        common_period = lcd(lcd(x_period, y_period), z_period)
-
-        return common_period
+        return int(common_period)
         
     def part_1(self):
         start_time = time.time()

@@ -17,3 +17,7 @@ python -m solution
 echo "\n>>> DAY 11"
 cd ~/source/AdventOfCode2019/solutions/day11
 python -m solution
+
+echo "\n>>> DAY 13"
+cd ~/source/AdventOfCode2019/solutions/day13
+python -m solution

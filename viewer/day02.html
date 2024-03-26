@@ -11,6 +11,9 @@ from base.advent import *
 from base.computer import *
 from copy import copy
 
+# i've read several puzzles in 2019 need an intepreter for IntCode
+# instead coding the functions here, i made a class that I can extend further
+
 class Solution(InputAsIntCSVLineSolution):
     _year = 2019
     _day = 2
@@ -30,23 +33,23 @@ class Solution(InputAsIntCSVLineSolution):
 
     def run_until_magic_number(self, code_):
         original = code_
-        found = False
 
-        for noun in range(100):
-            if found: break
+        try:
+            for noun in range(100):
+                for verb in range(100):
+                    code = copy(original)       
+                    code[1] = noun
+                    code[2] = verb
 
-            for verb in range(100):
-                code = copy(original)       
-                code[1] = noun
-                code[2] = verb
-                computer = Computer(code)
-                computer.run()
+                    computer = Computer(code)
+                    computer.run()
 
-                if computer.code[0] == 19_690_720: 
-                    found = True
-                    break
-
-        return 100 * (noun - 1) + verb         
+                    if computer.code[0] == 19_690_720: 
+                        raise StopIteration
+        except:
+            pass
+            
+        return (100 * noun) + verb         
 
     def part_1(self):
         start_time = time.time()

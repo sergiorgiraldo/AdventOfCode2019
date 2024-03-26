@@ -22,7 +22,7 @@ class Solution(InputAsIntCSVLineSolution):
         while True:
             try:
                 computer.run()
-            except OutputInterrupt:
+            except OutputEmmitted:
                 output = computer.outputs[-1]
                 if output != 0:
                     return output
