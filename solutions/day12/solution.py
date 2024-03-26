@@ -5,6 +5,7 @@ import sys
 sys.path.insert(0,"..")
 
 from base.advent import *
+from functools import reduce
 from math import gcd
 import re
 
@@ -27,8 +28,8 @@ class Moon:
         self.position = tuple([velocity + position for velocity, position in zip(self.position, self.velocity)])
 
     def get_total_energy(self):
-        potential_energy = sum([abs(element) for element in self.position])
-        kinetic_energy = sum([abs(element) for element in self.velocity])
+        potential_energy = reduce(lambda acc, curr: acc + abs(curr), self.position, 0)
+        kinetic_energy   = reduce(lambda acc, curr: acc + abs(curr), self.velocity, 0)
 
         return potential_energy * kinetic_energy
 
@@ -62,8 +63,8 @@ class Solution(InputAsLinesSolution):
             self.io         : [self.europa, self.ganymede, self.callisto],
             self.europa     : [self.io, self.ganymede, self.callisto],
             self.ganymede   : [self.io, self.europa, self.callisto],
-            self.callisto   : [self.io, self.europa, self.ganymede],
-    }
+            self.callisto   : [self.io, self.europa, self.ganymede]
+        }
 
     def simulate(self, cycles):
         for _ in range(cycles):
@@ -102,11 +103,11 @@ class Solution(InputAsLinesSolution):
 
         while True:
             self.update_positions_and_velocities(positions, velocities)
-            hash = hash(tuple(zip(positions, velocities)))
-            if hash in past_positions:
+            position = hash(tuple(zip(positions, velocities)))
+            if position in past_positions:
                 return step
             else:
-                past_positions.add(hash)
+                past_positions.add(position)
                 step += 1
 
     def find_first_repeating_state(self, lines):        

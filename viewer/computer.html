@@ -69,7 +69,7 @@ class Computer:
                 try:
                     self.code[out] = self.inputs.popleft()
                 except IndexError:
-                    raise InputInterrupted
+                    raise InputInterrupted #no more inputs, maybe ask for it
                 else:
                     self.ip += 2
             
