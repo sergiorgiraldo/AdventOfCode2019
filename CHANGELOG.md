@@ -5,7 +5,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* day 14 completed
+* day 12, 13 & 14 completed
 
 ### Features
 
