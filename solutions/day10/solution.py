@@ -81,7 +81,7 @@ class Solution(InputAsLinesSolution):
 
         angle_index = 0
         gone = 0
-        while gone < 200:
+        while gone < 200: #magic number from the puzzle
             # find the next angle with asteroids left
             while not angles[possible_angles[angle_index]]:
                 angle_index = (angle_index + 1) % num_possible
