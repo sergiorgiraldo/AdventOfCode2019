@@ -158,5 +158,8 @@ if __name__ == "__main__":
     while not computer.done:
         try:
             computer.run()
+        except InputInterrupted:
+            inp = int(input("Enter input: "))
+            computer.inputs.append(inp)
         except OutputEmmitted:
             print(computer.outputs[-1])

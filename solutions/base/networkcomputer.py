@@ -1,6 +1,3 @@
-<style>pre{font-size: large;}</style>
-<h1>IntCode Computer</h1>
-<pre>
 from collections import deque
 from copy import copy
 
@@ -42,7 +39,8 @@ class Computer:
         self.inputs  = deque()
         self.outputs = deque()
         
-        self.done = False
+        self.done    = False
+        self.waiting = False
 
     def run(self):
         while True:
@@ -68,7 +66,9 @@ class Computer:
                 out = self.produce(op, params, modes)
                 try:
                     self.code[out] = self.inputs.popleft()
+                    self.waiting = False
                 except IndexError:
+                    self.waiting = True
                     raise InputInterrupted #no more inputs, maybe ask for it
                 else:
                     self.ip += 2
@@ -166,4 +166,3 @@ if __name__ == "__main__":
             computer.inputs.append(inp)
         except OutputEmmitted:
             print(computer.outputs[-1])
-</pre>

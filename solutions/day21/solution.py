@@ -28,8 +28,6 @@ class Solution(InputAsIntCSVLineSolution):
         while not computer.done:
             try:
                 computer.run()
-            except InputInterrupted:
-                computer.inputs.popleft()
             except OutputEmmitted:
                 output = computer.outputs[-1]
                 if output > 255:    # it will use an output instruction to indicate the damage
@@ -61,8 +59,6 @@ class Solution(InputAsIntCSVLineSolution):
         while not computer.done:
             try:
                 computer.run()
-            except InputInterrupted:
-                computer.inputs.popleft()
             except OutputEmmitted:
                 output = computer.outputs[-1]
                 if output > 255:    # it will use an output instruction to indicate the damage
