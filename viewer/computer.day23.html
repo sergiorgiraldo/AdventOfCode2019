@@ -42,7 +42,8 @@
             self.inputs  = deque()
             self.outputs = deque()
             
-            self.done = False
+            self.done    = False
+            self.waiting = False
     
         def run(self):
             while True:
@@ -68,8 +69,10 @@
                     out = self.produce(op, params, modes)
                     try:
                         self.code[out] = self.inputs.popleft()
+                        self.waiting = False
                     except IndexError:
-                        raise InputInterrupted
+                        self.waiting = True
+                        raise InputInterrupted #no more inputs, maybe ask for it
                     else:
                         self.ip += 2
                 
@@ -161,6 +164,9 @@
         while not computer.done:
             try:
                 computer.run()
+            except InputInterrupted:
+                inp = int(input("Enter input: "))
+                computer.inputs.append(inp)
             except OutputEmmitted:
                 print(computer.outputs[-1])
-    </pre>
+</pre>
