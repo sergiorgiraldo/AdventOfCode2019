@@ -100,6 +100,8 @@ class Solution(InputAsIntCSVLineSolution):
             itemCombinations += list(combinations(allItems, n))
 
         # Bruteforce the pressure floor by trying all of the combinations 
+        # game at this point is: you are weighted, if not good, you are sent to the previous room
+        # that's why I keep track only of the last door. I try a combination and enter the checkpoint room
         inventory = set()
         tooHeavy = []
         for attemptItems in itemCombinations:
