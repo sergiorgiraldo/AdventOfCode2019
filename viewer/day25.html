@@ -1,3 +1,6 @@
+<style>pre{font-size: large;}</style>
+<h1>Day 25</h1>
+<pre>
 # puzzle prompt: https://adventofcode.com/2019/day/25
 
 import time
@@ -20,8 +23,8 @@ class Solution(InputAsIntCSVLineSolution):
 
         ignoredItems = set(["infinite loop", "molten lava", "giant electromagnet", "photons", "escape pod"])
 
-        computer = Computer(code)
-        computer.run()
+        computer_ = Computer(code)
+        computer_.run()
 
         # Store the command list that reaches the final room with the maximum amount of items
         finalState = None
@@ -29,13 +32,13 @@ class Solution(InputAsIntCSVLineSolution):
 
         # traverse through all rooms, storing (room, inventory) visited states
         visited = set()
-        queue = deque([(set(), [], computer)])
+        queue = deque([(set(), [], computer_)])
         while queue:
             inventory, path, computer = queue.popleft()
 
             # Save output and clear it
             text = "".join(chr(c) for c in computer.outputs)
-            # print(text)
+            print(text)
             computer.outputs = []
 
             # Get room name
@@ -103,7 +106,7 @@ class Solution(InputAsIntCSVLineSolution):
         inventory = set()
         tooHeavy = []
         for attemptItems in itemCombinations:
-            # print("Trying items: {}".format(list(attemptItems)))
+            print("Trying items: {}".format(list(attemptItems)))
 
             # If inventory is a superset of any of tooHeavy, then it's also going to be too heavy
             if any(set(s).issubset(set(attemptItems)) for s in tooHeavy): continue
@@ -129,7 +132,7 @@ class Solution(InputAsIntCSVLineSolution):
 
             # Verify result
             if text.find("Alert!") == -1:
-                # print(text)
+                print(text)
                 password = text.split()[-8]
                 break
             elif text.find("lighter") != -1: # Too heavy, add as invalid subset
@@ -162,3 +165,4 @@ if __name__ == '__main__':
     solution.part_1()
     
     # solution.part_2()
+</pre>

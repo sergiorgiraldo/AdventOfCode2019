@@ -21,18 +21,10 @@ RELATIVE        = 2
 #offsets
 RELATIVE_OFFSET = {ADD:2, MUL:2, INPUT:0, LESS_THAN:2,EQUALS:2}
 
-class InputInterrupted(Exception):
-    pass
-
-class OutputEmmitted(Exception):
-    pass
-
 class Computer:
     def __init__(self, code, ip= 0, relative = 0):
         self.code = code + [0] * 10_000  # rqrmnt:available memory should be larger than the initial program
         
-        self.original = code             # keep a copy of the original code
-
         self.ip = ip
         self.relative = relative
         self.max_ip = len(code)          # we get the ips from the code given (code != self.code)
@@ -43,10 +35,10 @@ class Computer:
         self.done    = False
 
     def copy(self):
-        return Computer(self.original, self.ip, self.relative)
+        return Computer(self.code, self.ip, self.relative)
 
     def run(self):
-        while self.ip < len(self.code):
+        while True:
             op = self.code[self.ip]
             op, modes = self.parse(op)
             params = self.code[self.ip + 1: self.ip + 5]
@@ -69,7 +61,6 @@ class Computer:
                 if (len(self.inputs) != 0):
                     out = self.produce(op, params, modes)
                     self.code[out] = self.inputs.popleft()
-                    print("Input: {}".format(self.code[out]))
                     self.ip += 2
                 else:
                     return
@@ -118,9 +109,6 @@ class Computer:
                 self.done = True
                 return
             
-        self.done = True
-        return
-
     def parse(self, op):
         try:
             mode3, op = divmod(op, 10000)
