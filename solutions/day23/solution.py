@@ -5,7 +5,7 @@ import sys
 sys.path.insert(0,"..")
 
 from base.advent import *
-from base.networkcomputer import *
+from base.computer import *
 
 class Solution(InputAsIntCSVLineSolution):
     _year = 2019
@@ -52,6 +52,7 @@ class Solution(InputAsIntCSVLineSolution):
         for network_address in range(50):
             if len(network_queue[network_address]) or not network[network_address].waiting:
                 return False
+            
         return True
 
     def get_NAT_value(self, code):
