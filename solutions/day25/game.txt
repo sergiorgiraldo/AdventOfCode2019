@@ -1,0 +1,2279 @@
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Items here:
+- jam
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- fuel cell
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Items here:
+- shell
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Storage ==
+The boxes just contain more boxes.  Recursively.
+
+Doors here lead:
+- south
+
+Items here:
+- molten lava
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Hallway ==
+This area has been optimized for something; you're just not quite sure what.
+
+Doors here lead:
+- north
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Items here:
+- shell
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- fuel cell
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Hallway ==
+This area has been optimized for something; you're just not quite sure what.
+
+Doors here lead:
+- north
+
+Command?
+
+
+
+
+== Storage ==
+The boxes just contain more boxes.  Recursively.
+
+Doors here lead:
+- south
+
+Items here:
+- molten lava
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- easter egg
+
+Command?
+
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- space heater
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Engineering ==
+You see a whiteboard with plans for Springdroid v2.
+
+Doors here lead:
+- south
+
+Items here:
+- photons
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Items here:
+- monolith
+
+Command?
+
+
+
+
+== Navigation ==
+Status: Stranded. Please supply measurements from fifty stars to recalibrate.
+
+Doors here lead:
+- south
+
+Items here:
+- infinite loop
+
+Command?
+
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Sick Bay ==
+Supports both Red-Nosed Reindeer medicine and regular reindeer medicine.
+
+Doors here lead:
+- north
+- east
+
+Items here:
+- mug
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Engineering ==
+You see a whiteboard with plans for Springdroid v2.
+
+Doors here lead:
+- south
+
+Items here:
+- photons
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Passages ==
+They're a little twisty and starting to look all alike.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Sick Bay ==
+Supports both Red-Nosed Reindeer medicine and regular reindeer medicine.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Engineering ==
+You see a whiteboard with plans for Springdroid v2.
+
+Doors here lead:
+- south
+
+Items here:
+- photons
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Passages ==
+They're a little twisty and starting to look all alike.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Warp Drive Maintenance ==
+It appears to be working normally.
+
+Doors here lead:
+- south
+
+Items here:
+- coin
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- space heater
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Passages ==
+They're a little twisty and starting to look all alike.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Navigation ==
+Status: Stranded. Please supply measurements from fifty stars to recalibrate.
+
+Doors here lead:
+- south
+
+Items here:
+- infinite loop
+
+Command?
+
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Warp Drive Maintenance ==
+It appears to be working normally.
+
+Doors here lead:
+- south
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Passages ==
+They're a little twisty and starting to look all alike.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Sick Bay ==
+Supports both Red-Nosed Reindeer medicine and regular reindeer medicine.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Engineering ==
+You see a whiteboard with plans for Springdroid v2.
+
+Doors here lead:
+- south
+
+Items here:
+- photons
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Engineering ==
+You see a whiteboard with plans for Springdroid v2.
+
+Doors here lead:
+- south
+
+Items here:
+- photons
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Sick Bay ==
+Supports both Red-Nosed Reindeer medicine and regular reindeer medicine.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Passages ==
+They're a little twisty and starting to look all alike.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- space heater
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Storage ==
+The boxes just contain more boxes.  Recursively.
+
+Doors here lead:
+- south
+
+Items here:
+- molten lava
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Hallway ==
+This area has been optimized for something; you're just not quite sure what.
+
+Doors here lead:
+- north
+
+Command?
+
+
+
+
+== Warp Drive Maintenance ==
+It appears to be working normally.
+
+Doors here lead:
+- south
+
+Items here:
+- coin
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Navigation ==
+Status: Stranded. Please supply measurements from fifty stars to recalibrate.
+
+Doors here lead:
+- south
+
+Items here:
+- infinite loop
+
+Command?
+
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Passages ==
+They're a little twisty and starting to look all alike.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Warp Drive Maintenance ==
+It appears to be working normally.
+
+Doors here lead:
+- south
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Passages ==
+They're a little twisty and starting to look all alike.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Engineering ==
+You see a whiteboard with plans for Springdroid v2.
+
+Doors here lead:
+- south
+
+Items here:
+- photons
+
+Command?
+
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+- west
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- escape pod
+
+Command?
+
+
+
+
+== Sick Bay ==
+Supports both Red-Nosed Reindeer medicine and regular reindeer medicine.
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Science Lab ==
+You see evidence here of prototype polymer design work.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- east
+- west
+
+Items here:
+- giant electromagnet
+
+Command?
+
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- east
+- south
+
+Command?
+
+
+
+
+== Storage ==
+The boxes just contain more boxes.  Recursively.
+
+Doors here lead:
+- south
+
+Items here:
+- molten lava
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- east
+- south
+- west
+
+Command?
+
+
+
+
+== Hallway ==
+This area has been optimized for something; you're just not quite sure what.
+
+Doors here lead:
+- north
+
+Command?
+
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- north
+- west
+
+Command?
+
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+
+Command?
+
+Trying items: []
+Trying items: ['fuel cell']
+Trying items: ['easter egg']
+Trying items: ['monolith']
+Trying items: ['jam']
+Trying items: ['mug']
+Trying items: ['space heater']
+Trying items: ['shell']
+Trying items: ['coin']
+Trying items: ['fuel cell', 'easter egg']
+Trying items: ['fuel cell', 'monolith']
+Trying items: ['fuel cell', 'jam']
+Trying items: ['fuel cell', 'mug']
+Trying items: ['fuel cell', 'space heater']
+Trying items: ['fuel cell', 'shell']
+Trying items: ['fuel cell', 'coin']
+Trying items: ['easter egg', 'monolith']
+Trying items: ['easter egg', 'jam']
+Trying items: ['easter egg', 'mug']
+Trying items: ['easter egg', 'space heater']
+Trying items: ['easter egg', 'shell']
+Trying items: ['easter egg', 'coin']
+Trying items: ['monolith', 'jam']
+Trying items: ['monolith', 'mug']
+Trying items: ['monolith', 'space heater']
+Trying items: ['monolith', 'shell']
+Trying items: ['monolith', 'coin']
+Trying items: ['jam', 'mug']
+Trying items: ['jam', 'space heater']
+Trying items: ['jam', 'shell']
+Trying items: ['jam', 'coin']
+Trying items: ['mug', 'space heater']
+Trying items: ['mug', 'shell']
+Trying items: ['mug', 'coin']
+Trying items: ['space heater', 'shell']
+Trying items: ['space heater', 'coin']
+Trying items: ['shell', 'coin']
+Trying items: ['fuel cell', 'easter egg', 'monolith']
+Trying items: ['fuel cell', 'easter egg', 'jam']
+Trying items: ['fuel cell', 'easter egg', 'mug']
+Trying items: ['fuel cell', 'easter egg', 'space heater']
+Trying items: ['fuel cell', 'easter egg', 'shell']
+Trying items: ['fuel cell', 'easter egg', 'coin']
+Trying items: ['fuel cell', 'monolith', 'jam']
+Trying items: ['fuel cell', 'monolith', 'mug']
+Trying items: ['fuel cell', 'monolith', 'space heater']
+Trying items: ['fuel cell', 'monolith', 'shell']
+Trying items: ['fuel cell', 'monolith', 'coin']
+Trying items: ['fuel cell', 'jam', 'mug']
+Trying items: ['fuel cell', 'jam', 'space heater']
+Trying items: ['fuel cell', 'jam', 'shell']
+Trying items: ['fuel cell', 'jam', 'coin']
+Trying items: ['fuel cell', 'mug', 'space heater']
+Trying items: ['fuel cell', 'mug', 'shell']
+Trying items: ['fuel cell', 'mug', 'coin']
+Trying items: ['fuel cell', 'space heater', 'shell']
+Trying items: ['fuel cell', 'space heater', 'coin']
+Trying items: ['fuel cell', 'shell', 'coin']
+Trying items: ['easter egg', 'monolith', 'jam']
+Trying items: ['easter egg', 'monolith', 'mug']
+Trying items: ['easter egg', 'monolith', 'space heater']
+Trying items: ['easter egg', 'monolith', 'shell']
+Trying items: ['easter egg', 'monolith', 'coin']
+Trying items: ['easter egg', 'jam', 'mug']
+Trying items: ['easter egg', 'jam', 'space heater']
+Trying items: ['easter egg', 'jam', 'shell']
+Trying items: ['easter egg', 'jam', 'coin']
+Trying items: ['easter egg', 'mug', 'space heater']
+Trying items: ['easter egg', 'mug', 'shell']
+Trying items: ['easter egg', 'mug', 'coin']
+Trying items: ['easter egg', 'space heater', 'shell']
+Trying items: ['easter egg', 'space heater', 'coin']
+Trying items: ['easter egg', 'shell', 'coin']
+Trying items: ['monolith', 'jam', 'mug']
+Trying items: ['monolith', 'jam', 'space heater']
+Trying items: ['monolith', 'jam', 'shell']
+Trying items: ['monolith', 'jam', 'coin']
+Trying items: ['monolith', 'mug', 'space heater']
+Trying items: ['monolith', 'mug', 'shell']
+Trying items: ['monolith', 'mug', 'coin']
+Trying items: ['monolith', 'space heater', 'shell']
+Trying items: ['monolith', 'space heater', 'coin']
+Trying items: ['monolith', 'shell', 'coin']
+Trying items: ['jam', 'mug', 'space heater']
+Trying items: ['jam', 'mug', 'shell']
+Trying items: ['jam', 'mug', 'coin']
+Trying items: ['jam', 'space heater', 'shell']
+Trying items: ['jam', 'space heater', 'coin']
+Trying items: ['jam', 'shell', 'coin']
+Trying items: ['mug', 'space heater', 'shell']
+Trying items: ['mug', 'space heater', 'coin']
+Trying items: ['mug', 'shell', 'coin']
+Trying items: ['space heater', 'shell', 'coin']
+Trying items: ['fuel cell', 'easter egg', 'monolith', 'jam']
+Trying items: ['fuel cell', 'easter egg', 'monolith', 'mug']
+Trying items: ['fuel cell', 'easter egg', 'monolith', 'space heater']
+Trying items: ['fuel cell', 'easter egg', 'monolith', 'shell']
+Trying items: ['fuel cell', 'easter egg', 'monolith', 'coin']
+Trying items: ['fuel cell', 'easter egg', 'jam', 'mug']
+Trying items: ['fuel cell', 'easter egg', 'jam', 'space heater']
+Trying items: ['fuel cell', 'easter egg', 'jam', 'shell']
+Trying items: ['fuel cell', 'easter egg', 'jam', 'coin']
+Trying items: ['fuel cell', 'easter egg', 'mug', 'space heater']
+Trying items: ['fuel cell', 'easter egg', 'mug', 'shell']
+Trying items: ['fuel cell', 'easter egg', 'mug', 'coin']
+Trying items: ['fuel cell', 'easter egg', 'space heater', 'shell']
+Trying items: ['fuel cell', 'easter egg', 'space heater', 'coin']
+Trying items: ['fuel cell', 'easter egg', 'shell', 'coin']
+Trying items: ['fuel cell', 'monolith', 'jam', 'mug']
+Trying items: ['fuel cell', 'monolith', 'jam', 'space heater']
+Trying items: ['fuel cell', 'monolith', 'jam', 'shell']
+Trying items: ['fuel cell', 'monolith', 'jam', 'coin']
+Trying items: ['fuel cell', 'monolith', 'mug', 'space heater']
+Trying items: ['fuel cell', 'monolith', 'mug', 'shell']
+Trying items: ['fuel cell', 'monolith', 'mug', 'coin']
+Trying items: ['fuel cell', 'monolith', 'space heater', 'shell']
+Trying items: ['fuel cell', 'monolith', 'space heater', 'coin']
+Trying items: ['fuel cell', 'monolith', 'shell', 'coin']
+Trying items: ['fuel cell', 'jam', 'mug', 'space heater']
+Trying items: ['fuel cell', 'jam', 'mug', 'shell']
+Trying items: ['fuel cell', 'jam', 'mug', 'coin']
+Trying items: ['fuel cell', 'jam', 'space heater', 'shell']
+Trying items: ['fuel cell', 'jam', 'space heater', 'coin']
+Trying items: ['fuel cell', 'jam', 'shell', 'coin']
+Trying items: ['fuel cell', 'mug', 'space heater', 'shell']
+Trying items: ['fuel cell', 'mug', 'space heater', 'coin']
+Trying items: ['fuel cell', 'mug', 'shell', 'coin']
+Trying items: ['fuel cell', 'space heater', 'shell', 'coin']
+{'fuel cell', 'space heater', 'shell', 'coin'} 
+
+
+You drop the mug.
+
+Command?
+
+You take the space heater.
+
+Command?
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- south
+
+A loud, robotic voice says "Analysis complete! You may proceed." and you enter the cockpit.
+Santa notices your small droid, looks puzzled for a moment, realizes what has happened, and radios your ship directly.
+"Oh, hello! You should be able to get in by typing 805306888 on the keypad at the main airlock."
