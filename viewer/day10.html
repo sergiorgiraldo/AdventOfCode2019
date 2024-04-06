@@ -67,9 +67,9 @@ class Solution(InputAsLinesSolution):
 
         # get all asteroids - grouped by angle we see them at, need to account for the fact
         # each time rotate clockwise by 90 degrees (the -90).
-        # i then add 360 to make sure it is always 0<x<360 and mod by 360
-        # 30  -> -60 -> 300 -> 300
-        # 110 ->  20 -> 380 -> 20
+        # i then add 360 to make sure it is always 0 < x < 360 and mod by 360
+        # 30  => -60 => 300 => 300
+        # 110 =>  20 => 380 => 20
         for asteroid in asteroids_map:
             if asteroid != station:
                 angles[(self.angle_between(asteroid, station) - 90 + 360) % 360].append(asteroid)
