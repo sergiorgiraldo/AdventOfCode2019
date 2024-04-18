@@ -1,4 +1,9 @@
 <style>pre{font-size: large;}</style>
+<script src="script.js"></script>
+<div id="navigation">
+<button onclick="navigateTo('prev')">Previous Day</button>
+<button onclick="navigateTo('next')">Next Day</button>
+</div>
 <h1>Day 13</h1>
 <pre>
 # puzzle prompt: https://adventofcode.com/2019/day/13
@@ -59,12 +64,12 @@ class Solution(InputAsIntCSVLineSolution):
     def beat_the_game(self, code):
         #outputs
         PADDLE = 3
-        BALL = 4
+        BALL   = 4
 
         #joystick moves
-        LEFT = -1
+        LEFT    = -1
         NEUTRAL = 0
-        RIGHT = 1
+        RIGHT   = 1
 
         computer = Computer(code)
 

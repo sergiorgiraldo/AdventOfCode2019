@@ -1,4 +1,9 @@
 <style>pre{font-size: large;}</style>
+<script src="script.js"></script>
+<div id="navigation">
+<button onclick="navigateTo('prev')">Previous Day</button>
+<button onclick="navigateTo('next')">Next Day</button>
+</div>
 <h1>Day 04</h1>
 <pre>
 # puzzle prompt: https://adventofcode.com/2019/day/4
@@ -37,13 +42,13 @@ class Solution(InputAsLinesSolution):
         #            1st digit
         #               |              2nd digit
         #               v                 v
-        pattern = r"^.*(\d)(?<!(?=\1)\1\1)\1(?!\1)"
+        pattern = r"^.*(\d)(?&lt;!(?=\1)\1\1)\1(?!\1)"
         #                    ^                ^     
         #                    |                |
         #             not happen before       |
         #                               not happen after
         #
-        # this part is tricky (<!(?=\1)\1\1)
+        # this part is tricky (&lt;!(?=\1)\1\1)
         # i am saying that i go before the group and look ahead
         # there will be already one digit (the group itself, the part (?=\1))
         # and then cannot be 2 more of then after it, the \1\1 part, 

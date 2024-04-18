@@ -1,4 +1,9 @@
 <style>pre{font-size: large;}</style>
+<script src="script.js"></script>
+<div id="navigation">
+<button onclick="navigateTo('prev')">Previous Day</button>
+<button onclick="navigateTo('next')">Next Day</button>
+</div>
 <h1>Day 25</h1>
 <pre>
 # puzzle prompt: https://adventofcode.com/2019/day/25
@@ -23,8 +28,8 @@ class Solution(InputAsIntCSVLineSolution):
 
         ignoredItems = set(["infinite loop", "molten lava", "giant electromagnet", "photons", "escape pod"])
 
-        computer_ = Computer(code)
-        computer_.run()
+        computer = Computer(code)
+        computer.run()
 
         # Store the command list that reaches the final room with the maximum amount of items
         finalState = None
@@ -32,13 +37,13 @@ class Solution(InputAsIntCSVLineSolution):
 
         # traverse through all rooms, storing (room, inventory) visited states
         visited = set()
-        queue = deque([(set(), [], computer_)])
+        queue = deque([(set(), [], computer)])
         while queue:
             inventory, path, computer = queue.popleft()
 
             # Save output and clear it
             text = "".join(chr(c) for c in computer.outputs)
-            print(text)
+            # print(text)
             computer.outputs = []
 
             # Get room name
@@ -103,10 +108,12 @@ class Solution(InputAsIntCSVLineSolution):
             itemCombinations += list(combinations(allItems, n))
 
         # Bruteforce the pressure floor by trying all of the combinations 
+        # game at this point is: you are weighted, if not good, you are sent to the previous room
+        # that's why I keep track only of the last door. I try a combination and enter the checkpoint room
         inventory = set()
         tooHeavy = []
         for attemptItems in itemCombinations:
-            print("Trying items: {}".format(list(attemptItems)))
+            # print("Trying items: {}".format(list(attemptItems)))
 
             # If inventory is a superset of any of tooHeavy, then it's also going to be too heavy
             if any(set(s).issubset(set(attemptItems)) for s in tooHeavy): continue
@@ -132,7 +139,7 @@ class Solution(InputAsIntCSVLineSolution):
 
             # Verify result
             if text.find("Alert!") == -1:
-                print(text)
+                # print(text)
                 password = text.split()[-8]
                 break
             elif text.find("lighter") != -1: # Too heavy, add as invalid subset

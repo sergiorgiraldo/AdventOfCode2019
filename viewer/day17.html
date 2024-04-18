@@ -1,4 +1,9 @@
 <style>pre{font-size: large;}</style>
+<script src="script.js"></script>
+<div id="navigation">
+<button onclick="navigateTo('prev')">Previous Day</button>
+<button onclick="navigateTo('next')">Next Day</button>
+</div>
 <h1>Day 17</h1>
 <pre>
 # puzzle prompt: https://adventofcode.com/2019/day/17
@@ -54,6 +59,7 @@ class Solution(InputAsIntCSVLineSolution):
         computer = Computer(code)
 
         # solved the map by hand, see `map WALKED.txt`
+        # R12 L10 L10 L6 L12 R12 L4 R12 L10 L10 L6 L12 R12 L4 L12 R12 L6 L6 L12 R12 L4 L12 R12 L6 R12 L10 L10 L12 R12 L6 L12 R12 L6
         main_routine   = "A,B,A,B,C,B,C,A,C,C\n"
         a_function     = "R,12,L,10,L,10\n"
         b_function     = "L,6,L,12,R,12,L,4\n"
