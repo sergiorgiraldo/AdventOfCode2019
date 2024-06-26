@@ -1,137 +1,166 @@
-<style>pre{font-size: large;}</style>
+<style>
+        pre {
+    background: #303030;
+    color: #f1f1f1;
+    padding: 10px 16px;
+    border-radius: 2px;
+    border-top: 4px solid #00aeef;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #000;
+    counter-reset: line;
+    }
+    pre span {
+    display: block;
+    line-height: 1.5rem;
+    }
+    pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888
+    }
+    span{
+        font-family: monospace;
+        font-size: 16px;
+    }
+    </style>
 <script src="script.js"></script>
 <div id="navigation">
 <button onclick="navigateTo('prev')">Previous Day</button>
 <button onclick="navigateTo('next')">Next Day</button>
 </div>
 <h1>Day 13</h1>
+<h1>Day 13</h1>
 <pre>
-# puzzle prompt: https://adventofcode.com/2019/day/13
-
-import time
-import sys
-sys.path.insert(0,"..")
-
-from base.advent import *
-from base.computer import *
-
-class Solution(InputAsIntCSVLineSolution):
-    _year = 2019
-    _day = 13
-
-    def play_the_game(self, code):
-        tiles = {}
-
-        computer = Computer(code)
-        output_values = []
-        while not computer.done:
-            try:
-                computer.run()
-            except InputInterrupted:
-                computer.inputs.append(0)
-            except OutputEmmitted:
-                output_values.append(computer.outputs[-1])
-                # wait for 3 consecutive outputs
-                if len(output_values) == 3:
-                    x, y, tile = output_values
-                    tiles[(x, y)] = tile
-                    output_values.clear()
-
-        self.render(tiles)
-
-        blocks = sum(1 for i in range(30) for j in range(100) if (j, i) in tiles and tiles[(j, i)] == 2)
-
-        return blocks
-    
-    def render(self, tiles):
-        for i in range(30):
-            game_line = ""
-            for j in range(100):
-                if (j, i) in tiles:
-                    tile = tiles[(j, i)]
-                    if tile == 0:
-                        game_line += "  "
-                    elif tile == 1:
-                        game_line += "##"
-                    elif tile == 2:
-                        game_line += "██"
-                    elif tile == 3:
-                        game_line += "=="
-                    elif tile == 4:
-                        game_line += "@@"
-            print(game_line)
-
-    def beat_the_game(self, code):
-        #outputs
-        PADDLE = 3
-        BALL   = 4
-
-        #joystick moves
-        LEFT    = -1
-        NEUTRAL = 0
-        RIGHT   = 1
-
-        computer = Computer(code)
-
-        # enter 2 coins
-        computer.code[0] = 2
-
-        # set up x positions for ball and paddle
-        ball_x = 0
-        paddle_x = 0
-
-        # set up initial score
-        score = 0
-
-        output_values = []
-        while not computer.done:
-            try:
-                computer.run()
-            except InputInterrupted:
-                if ball_x < paddle_x:
-                    computer.inputs.append(LEFT)
-                elif ball_x > paddle_x:
-                    computer.inputs.append(RIGHT)
-                else:
-                    computer.inputs.append(NEUTRAL)
-            except OutputEmmitted:
-                output_values.append(computer.outputs[-1])
-                if len(output_values) == 3:
-                    x, y, tile = output_values
-                    if x == -1 and y == 0:
-                        score = tile
-                    if tile == BALL:
-                        ball_x = x
-                    elif tile == PADDLE:
-                        paddle_x = x
-                    output_values.clear()
-
-        return score
-
-    def part_1(self):
-        start_time = time.time()
-
-        #see day13.png for the output
-
-        res = self.play_the_game(self.input)
-
-        end_time = time.time()
-
-        self.solve("1", res, (end_time - start_time))
-
-    def part_2(self):
-        start_time = time.time()
-
-        res = self.beat_the_game(self.input)
-
-        end_time = time.time()
-
-        self.solve("2", res, (end_time - start_time))
-
-if __name__ == '__main__':
-    solution = Solution()
-
-    solution.part_1()
-    
-    solution.part_2()
+<span># puzzle prompt: https://adventofcode.com/2019/day/13</span>
+<span></span>
+<span>import time</span>
+<span>import sys</span>
+<span>sys.path.insert(0,"..")</span>
+<span></span>
+<span>from base.advent import *</span>
+<span>from base.computer import *</span>
+<span></span>
+<span>class Solution(InputAsIntCSVLineSolution):</span>
+<span>    _year = 2019</span>
+<span>    _day = 13</span>
+<span></span>
+<span>    def play_the_game(self, code):</span>
+<span>        tiles = {}</span>
+<span></span>
+<span>        computer = Computer(code)</span>
+<span>        output_values = []</span>
+<span>        while not computer.done:</span>
+<span>            try:</span>
+<span>                computer.run()</span>
+<span>            except InputInterrupted:</span>
+<span>                computer.inputs.append(0)</span>
+<span>            except OutputEmmitted:</span>
+<span>                output_values.append(computer.outputs[-1])</span>
+<span>                # wait for 3 consecutive outputs</span>
+<span>                if len(output_values) == 3:</span>
+<span>                    x, y, tile = output_values</span>
+<span>                    tiles[(x, y)] = tile</span>
+<span>                    output_values.clear()</span>
+<span></span>
+<span>        self.render(tiles)</span>
+<span></span>
+<span>        blocks = sum(1 for i in range(30) for j in range(100) if (j, i) in tiles and tiles[(j, i)] == 2)</span>
+<span></span>
+<span>        return blocks</span>
+<span>    </span>
+<span>    def render(self, tiles):</span>
+<span>        for i in range(30):</span>
+<span>            game_line = ""</span>
+<span>            for j in range(100):</span>
+<span>                if (j, i) in tiles:</span>
+<span>                    tile = tiles[(j, i)]</span>
+<span>                    if tile == 0:</span>
+<span>                        game_line += "  "</span>
+<span>                    elif tile == 1:</span>
+<span>                        game_line += "##"</span>
+<span>                    elif tile == 2:</span>
+<span>                        game_line += "██"</span>
+<span>                    elif tile == 3:</span>
+<span>                        game_line += "=="</span>
+<span>                    elif tile == 4:</span>
+<span>                        game_line += "@@"</span>
+<span>            print(game_line)</span>
+<span></span>
+<span>    def beat_the_game(self, code):</span>
+<span>        #outputs</span>
+<span>        PADDLE = 3</span>
+<span>        BALL   = 4</span>
+<span></span>
+<span>        #joystick moves</span>
+<span>        LEFT    = -1</span>
+<span>        NEUTRAL = 0</span>
+<span>        RIGHT   = 1</span>
+<span></span>
+<span>        computer = Computer(code)</span>
+<span></span>
+<span>        # enter 2 coins</span>
+<span>        computer.code[0] = 2</span>
+<span></span>
+<span>        # set up x positions for ball and paddle</span>
+<span>        ball_x = 0</span>
+<span>        paddle_x = 0</span>
+<span></span>
+<span>        # set up initial score</span>
+<span>        score = 0</span>
+<span></span>
+<span>        output_values = []</span>
+<span>        while not computer.done:</span>
+<span>            try:</span>
+<span>                computer.run()</span>
+<span>            except InputInterrupted:</span>
+<span>                if ball_x < paddle_x:</span>
+<span>                    computer.inputs.append(LEFT)</span>
+<span>                elif ball_x > paddle_x:</span>
+<span>                    computer.inputs.append(RIGHT)</span>
+<span>                else:</span>
+<span>                    computer.inputs.append(NEUTRAL)</span>
+<span>            except OutputEmmitted:</span>
+<span>                output_values.append(computer.outputs[-1])</span>
+<span>                if len(output_values) == 3:</span>
+<span>                    x, y, tile = output_values</span>
+<span>                    if x == -1 and y == 0:</span>
+<span>                        score = tile</span>
+<span>                    if tile == BALL:</span>
+<span>                        ball_x = x</span>
+<span>                    elif tile == PADDLE:</span>
+<span>                        paddle_x = x</span>
+<span>                    output_values.clear()</span>
+<span></span>
+<span>        return score</span>
+<span></span>
+<span>    def part_1(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        #see day13.png for the output</span>
+<span></span>
+<span>        res = self.play_the_game(self.input)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("1", res, (end_time - start_time))</span>
+<span></span>
+<span>    def part_2(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.beat_the_game(self.input)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("2", res, (end_time - start_time))</span>
+<span></span>
+<span>if __name__ == '__main__':</span>
+<span>    solution = Solution()</span>
+<span></span>
+<span>    solution.part_1()</span>
+<span>    </span>
+<span>    solution.part_2()</span>
 </pre>

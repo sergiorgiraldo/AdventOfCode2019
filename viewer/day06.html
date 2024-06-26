@@ -1,102 +1,131 @@
-<style>pre{font-size: large;}</style>
+<style>
+        pre {
+    background: #303030;
+    color: #f1f1f1;
+    padding: 10px 16px;
+    border-radius: 2px;
+    border-top: 4px solid #00aeef;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #000;
+    counter-reset: line;
+    }
+    pre span {
+    display: block;
+    line-height: 1.5rem;
+    }
+    pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888
+    }
+    span{
+        font-family: monospace;
+        font-size: 16px;
+    }
+    </style>
 <script src="script.js"></script>
 <div id="navigation">
 <button onclick="navigateTo('prev')">Previous Day</button>
 <button onclick="navigateTo('next')">Next Day</button>
 </div>
 <h1>Day 06</h1>
+<h1>Day 06</h1>
 <pre>
-# puzzle prompt: https://adventofcode.com/2019/day/6
-
-import time
-import sys
-sys.path.insert(0,"..")
-
-from base.advent import *
-from collections import defaultdict
-
-class Solution(InputAsLinesSolution):
-    _year = 2019
-    _day = 6
-
-    def count_orbits(self, lines):
-        map, _ = self.parse(lines)
-
-        orbit_counts = 0
-        
-        for object in map:
-            orbit_counts += self.count_orbits_from_object(map, object)
-        
-        return orbit_counts
-
-    def count_orbits_from_object(self, map, object):
-        object_orbited_around = map[object]
-
-        return 1 if object_orbited_around == "COM" else 1 + self.count_orbits_from_object(map, object_orbited_around)
-
-    def find_minimum_orbital_transfers(self, lines):
-        _, map = self.parse(lines)
-
-        shortest_path = self.find_shortest_path(map, "YOU", "SAN", [])
-
-        return len(shortest_path) - 3 # count only the hops excluding YOU and SAN
-                                      # e.g. ['YOU', 'A', 'B', 'C', 'D', 'E', 'SAN'] -> 4  
-
-    def find_shortest_path(self, map, start_object, end_object, path):
-        path = path + [start_object]
-
-        if start_object == end_object:
-            return path
-
-        if start_object not in map:
-            return None
-
-        shortest_path = None
-
-        for orbiting_object in map[start_object]:
-            if orbiting_object not in path:
-                new_path_explored = self.find_shortest_path(map, orbiting_object, end_object, path)
-                
-                if new_path_explored:
-                    if not shortest_path or len(new_path_explored) < len(shortest_path):
-                        shortest_path = new_path_explored
-
-        return shortest_path
-
-    def parse(self, lines):
-        map = {}
-        map_bidirectional = defaultdict(list)
-        
-        for line in lines:
-            object_orbited_around, object_orbiting = line.split(")")
-            map[object_orbiting] = object_orbited_around
-            map_bidirectional[object_orbiting].append(object_orbited_around)
-            map_bidirectional[object_orbited_around].append(object_orbiting)
-        
-        return map, map_bidirectional
-
-    def part_1(self):
-        start_time = time.time()
-
-        res = self.count_orbits(self.input)
-
-        end_time = time.time()
-
-        self.solve("1", res, (end_time - start_time))
-
-    def part_2(self):
-        start_time = time.time()
-
-        res = self.find_minimum_orbital_transfers(self.input)
-
-        end_time = time.time()
-
-        self.solve("2", res, (end_time - start_time))
-
-if __name__ == '__main__':
-    solution = Solution()
-
-    solution.part_1()
-    
-    solution.part_2()
+<span># puzzle prompt: https://adventofcode.com/2019/day/6</span>
+<span></span>
+<span>import time</span>
+<span>import sys</span>
+<span>sys.path.insert(0,"..")</span>
+<span></span>
+<span>from base.advent import *</span>
+<span>from collections import defaultdict</span>
+<span></span>
+<span>class Solution(InputAsLinesSolution):</span>
+<span>    _year = 2019</span>
+<span>    _day = 6</span>
+<span></span>
+<span>    def count_orbits(self, lines):</span>
+<span>        map, _ = self.parse(lines)</span>
+<span></span>
+<span>        orbit_counts = 0</span>
+<span>        </span>
+<span>        for object in map:</span>
+<span>            orbit_counts += self.count_orbits_from_object(map, object)</span>
+<span>        </span>
+<span>        return orbit_counts</span>
+<span></span>
+<span>    def count_orbits_from_object(self, map, object):</span>
+<span>        object_orbited_around = map[object]</span>
+<span></span>
+<span>        return 1 if object_orbited_around == "COM" else 1 + self.count_orbits_from_object(map, object_orbited_around)</span>
+<span></span>
+<span>    def find_minimum_orbital_transfers(self, lines):</span>
+<span>        _, map = self.parse(lines)</span>
+<span></span>
+<span>        shortest_path = self.find_shortest_path(map, "YOU", "SAN", [])</span>
+<span></span>
+<span>        return len(shortest_path) - 3 # count only the hops excluding YOU and SAN</span>
+<span>                                      # e.g. ['YOU', 'A', 'B', 'C', 'D', 'E', 'SAN'] -> 4  </span>
+<span></span>
+<span>    def find_shortest_path(self, map, start_object, end_object, path):</span>
+<span>        path = path + [start_object]</span>
+<span></span>
+<span>        if start_object == end_object:</span>
+<span>            return path</span>
+<span></span>
+<span>        if start_object not in map:</span>
+<span>            return None</span>
+<span></span>
+<span>        shortest_path = None</span>
+<span></span>
+<span>        for orbiting_object in map[start_object]:</span>
+<span>            if orbiting_object not in path:</span>
+<span>                new_path_explored = self.find_shortest_path(map, orbiting_object, end_object, path)</span>
+<span>                </span>
+<span>                if new_path_explored:</span>
+<span>                    if not shortest_path or len(new_path_explored) < len(shortest_path):</span>
+<span>                        shortest_path = new_path_explored</span>
+<span></span>
+<span>        return shortest_path</span>
+<span></span>
+<span>    def parse(self, lines):</span>
+<span>        map = {}</span>
+<span>        map_bidirectional = defaultdict(list)</span>
+<span>        </span>
+<span>        for line in lines:</span>
+<span>            object_orbited_around, object_orbiting = line.split(")")</span>
+<span>            map[object_orbiting] = object_orbited_around</span>
+<span>            map_bidirectional[object_orbiting].append(object_orbited_around)</span>
+<span>            map_bidirectional[object_orbited_around].append(object_orbiting)</span>
+<span>        </span>
+<span>        return map, map_bidirectional</span>
+<span></span>
+<span>    def part_1(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.count_orbits(self.input)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("1", res, (end_time - start_time))</span>
+<span></span>
+<span>    def part_2(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.find_minimum_orbital_transfers(self.input)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("2", res, (end_time - start_time))</span>
+<span></span>
+<span>if __name__ == '__main__':</span>
+<span>    solution = Solution()</span>
+<span></span>
+<span>    solution.part_1()</span>
+<span>    </span>
+<span>    solution.part_2()</span>
 </pre>

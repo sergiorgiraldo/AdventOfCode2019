@@ -1,157 +1,186 @@
-<style>pre{font-size: large;}</style>
+<style>
+        pre {
+    background: #303030;
+    color: #f1f1f1;
+    padding: 10px 16px;
+    border-radius: 2px;
+    border-top: 4px solid #00aeef;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #000;
+    counter-reset: line;
+    }
+    pre span {
+    display: block;
+    line-height: 1.5rem;
+    }
+    pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888
+    }
+    span{
+        font-family: monospace;
+        font-size: 16px;
+    }
+    </style>
 <script src="script.js"></script>
 <div id="navigation">
 <button onclick="navigateTo('prev')">Previous Day</button>
 <button onclick="navigateTo('next')">Next Day</button>
 </div>
 <h1>Day 18</h1>
+<h1>Day 18</h1>
 <pre>
-# puzzle prompt: https://adventofcode.com/2019/day/18
-
-import time
-import sys
-sys.path.insert(0,"..")
-
-from base.advent import *
-from collections import deque
-from functools import lru_cache
-import string
-
-class Solution(InputAsLinesSolution):
-    _year = 2019
-    _day = 18
-    map = list()
-
-    @lru_cache(maxsize=26) # 26 lowercase letters
-    def key_to_bit(self, key):
-        return 1 << (ord(key) - 97)
-
-    @lru_cache(maxsize=26) # 26 uppercase letters
-    def door_to_bit(self, key):
-        return 1 << (ord(key) - 65)
-
-    @lru_cache(maxsize=None)
-    def get_reachable_keys(self, position, obtained):
-        queue = deque([position])
-        dists = {position: 0}
-        keys = {}
-
-        while queue:
-            row, col = queue.popleft()
-            for (x, y) in [(row, col + 1), (row, col - 1), (row + 1, col), (row - 1, col)]:
-                if x not in range(81) or y not in range(81): # my input is 81x81
-                    continue
-
-                tile = self.map[y][x]
-
-                if tile == "#" or (x, y) in dists:
-                    continue
-
-                dists[x, y] = dists[row, col] + 1
-
-                if tile in string.ascii_uppercase and not obtained & self.door_to_bit(tile):
-                    continue
-
-                if tile in string.ascii_lowercase and not obtained & self.key_to_bit(tile):
-                    keys[tile] = dists[x, y], (x, y)
-                else:
-                    queue.append((x, y))
-
-        return keys
-
-    @lru_cache(maxsize=None)
-    def find_shortest_path(self, positions, obtained):
-        keys = {
-            key: (distance, position, robot)
-            for robot, start in enumerate(positions)
-            for key, (distance, position) in self.get_reachable_keys(start, obtained).items()
-        }
-
-        if not keys:
-            return 0
-
-        distances = []
-
-        for key, (distance, position, robot) in keys.items():
-            robot_positions = tuple(
-                [initial, position][i == robot] for i, initial in enumerate(positions)
-            )
-            distances.append(
-                distance + self.find_shortest_path(robot_positions, obtained | self.key_to_bit(key))
-            )
-
-        return min(distances)
-
-    def parse(self, lines):
-        map = [[*line] for line in lines]
-        self.map = map
-
-    def find_entrance(self):
-        for y, row in enumerate(self.map):
-            for x, tile in enumerate(row):
-                if tile == "@":
-                    position = (x, y)
-                    break
-            else:
-                continue
-            break
-        return position
-    
-    def collect_keys(self, lines):
-        self.parse(lines)
-
-        entrance = self.find_entrance()
-
-        return self.find_shortest_path((entrance,), 0)
-
-    def collect_keys_with_4robots(self, lines):
-        self.parse(lines)
-
-        #from the puzzle: update the map, @ is the entrance
-        #  ...     @#@
-        #  .@.  -> ### 
-        #  ...     @#@
-
-        (x,y) = self.find_entrance()
-
-        self.map[y - 1][x - 1]  = "@"
-        self.map[y - 1][x]      = "#"
-        self.map[y - 1][x + 1]  = "@"
-        self.map[y]    [x - 1]  = "#"
-        self.map[y]    [x]      = "#"
-        self.map[y]    [x + 1]  = "#"
-        self.map[y + 1][x - 1]  = "@"
-        self.map[y + 1][x]      = "#"
-        self.map[y + 1][x + 1]  = "@"
-
-        #reset cache
-        self.find_shortest_path.cache_clear()
-        self.get_reachable_keys.cache_clear()
-
-        return self.find_shortest_path(((x - 1, y - 1), (x - 1, y + 1), (x + 1, y - 1), (x + 1, y + 1)), 0) 
-    
-    def part_1(self):
-        start_time = time.time()
-
-        res = self.collect_keys(self.input)
-
-        end_time = time.time()
-
-        self.solve("1", res, (end_time - start_time))
-
-    def part_2(self):
-        start_time = time.time()
-
-        res = self.collect_keys_with_4robots(self.input)
-
-        end_time = time.time()
-
-        self.solve("2", res, (end_time - start_time))
-
-if __name__ == '__main__':
-    solution = Solution()
-
-    solution.part_1()
-    
-    solution.part_2()
+<span># puzzle prompt: https://adventofcode.com/2019/day/18</span>
+<span></span>
+<span>import time</span>
+<span>import sys</span>
+<span>sys.path.insert(0,"..")</span>
+<span></span>
+<span>from base.advent import *</span>
+<span>from collections import deque</span>
+<span>from functools import lru_cache</span>
+<span>import string</span>
+<span></span>
+<span>class Solution(InputAsLinesSolution):</span>
+<span>    _year = 2019</span>
+<span>    _day = 18</span>
+<span>    map = list()</span>
+<span></span>
+<span>    @lru_cache(maxsize=26) # 26 lowercase letters</span>
+<span>    def key_to_bit(self, key):</span>
+<span>        return 1 << (ord(key) - 97)</span>
+<span></span>
+<span>    @lru_cache(maxsize=26) # 26 uppercase letters</span>
+<span>    def door_to_bit(self, key):</span>
+<span>        return 1 << (ord(key) - 65)</span>
+<span></span>
+<span>    @lru_cache(maxsize=None)</span>
+<span>    def get_reachable_keys(self, position, obtained):</span>
+<span>        queue = deque([position])</span>
+<span>        dists = {position: 0}</span>
+<span>        keys = {}</span>
+<span></span>
+<span>        while queue:</span>
+<span>            row, col = queue.popleft()</span>
+<span>            for (x, y) in [(row, col + 1), (row, col - 1), (row + 1, col), (row - 1, col)]:</span>
+<span>                if x not in range(81) or y not in range(81): # my input is 81x81</span>
+<span>                    continue</span>
+<span></span>
+<span>                tile = self.map[y][x]</span>
+<span></span>
+<span>                if tile == "#" or (x, y) in dists:</span>
+<span>                    continue</span>
+<span></span>
+<span>                dists[x, y] = dists[row, col] + 1</span>
+<span></span>
+<span>                if tile in string.ascii_uppercase and not obtained & self.door_to_bit(tile):</span>
+<span>                    continue</span>
+<span></span>
+<span>                if tile in string.ascii_lowercase and not obtained & self.key_to_bit(tile):</span>
+<span>                    keys[tile] = dists[x, y], (x, y)</span>
+<span>                else:</span>
+<span>                    queue.append((x, y))</span>
+<span></span>
+<span>        return keys</span>
+<span></span>
+<span>    @lru_cache(maxsize=None)</span>
+<span>    def find_shortest_path(self, positions, obtained):</span>
+<span>        keys = {</span>
+<span>            key: (distance, position, robot)</span>
+<span>            for robot, start in enumerate(positions)</span>
+<span>            for key, (distance, position) in self.get_reachable_keys(start, obtained).items()</span>
+<span>        }</span>
+<span></span>
+<span>        if not keys:</span>
+<span>            return 0</span>
+<span></span>
+<span>        distances = []</span>
+<span></span>
+<span>        for key, (distance, position, robot) in keys.items():</span>
+<span>            robot_positions = tuple(</span>
+<span>                [initial, position][i == robot] for i, initial in enumerate(positions)</span>
+<span>            )</span>
+<span>            distances.append(</span>
+<span>                distance + self.find_shortest_path(robot_positions, obtained | self.key_to_bit(key))</span>
+<span>            )</span>
+<span></span>
+<span>        return min(distances)</span>
+<span></span>
+<span>    def parse(self, lines):</span>
+<span>        map = [[*line] for line in lines]</span>
+<span>        self.map = map</span>
+<span></span>
+<span>    def find_entrance(self):</span>
+<span>        for y, row in enumerate(self.map):</span>
+<span>            for x, tile in enumerate(row):</span>
+<span>                if tile == "@":</span>
+<span>                    position = (x, y)</span>
+<span>                    break</span>
+<span>            else:</span>
+<span>                continue</span>
+<span>            break</span>
+<span>        return position</span>
+<span>    </span>
+<span>    def collect_keys(self, lines):</span>
+<span>        self.parse(lines)</span>
+<span></span>
+<span>        entrance = self.find_entrance()</span>
+<span></span>
+<span>        return self.find_shortest_path((entrance,), 0)</span>
+<span></span>
+<span>    def collect_keys_with_4robots(self, lines):</span>
+<span>        self.parse(lines)</span>
+<span></span>
+<span>        #from the puzzle: update the map, @ is the entrance</span>
+<span>        #  ...     @#@</span>
+<span>        #  .@.  -> ### </span>
+<span>        #  ...     @#@</span>
+<span></span>
+<span>        (x,y) = self.find_entrance()</span>
+<span></span>
+<span>        self.map[y - 1][x - 1]  = "@"</span>
+<span>        self.map[y - 1][x]      = "#"</span>
+<span>        self.map[y - 1][x + 1]  = "@"</span>
+<span>        self.map[y]    [x - 1]  = "#"</span>
+<span>        self.map[y]    [x]      = "#"</span>
+<span>        self.map[y]    [x + 1]  = "#"</span>
+<span>        self.map[y + 1][x - 1]  = "@"</span>
+<span>        self.map[y + 1][x]      = "#"</span>
+<span>        self.map[y + 1][x + 1]  = "@"</span>
+<span></span>
+<span>        #reset cache</span>
+<span>        self.find_shortest_path.cache_clear()</span>
+<span>        self.get_reachable_keys.cache_clear()</span>
+<span></span>
+<span>        return self.find_shortest_path(((x - 1, y - 1), (x - 1, y + 1), (x + 1, y - 1), (x + 1, y + 1)), 0) </span>
+<span>    </span>
+<span>    def part_1(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.collect_keys(self.input)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("1", res, (end_time - start_time))</span>
+<span></span>
+<span>    def part_2(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.collect_keys_with_4robots(self.input)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("2", res, (end_time - start_time))</span>
+<span></span>
+<span>if __name__ == '__main__':</span>
+<span>    solution = Solution()</span>
+<span></span>
+<span>    solution.part_1()</span>
+<span>    </span>
+<span>    solution.part_2()</span>
 </pre>

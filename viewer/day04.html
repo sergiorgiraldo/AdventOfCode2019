@@ -1,102 +1,131 @@
-<style>pre{font-size: large;}</style>
+<style>
+        pre {
+    background: #303030;
+    color: #f1f1f1;
+    padding: 10px 16px;
+    border-radius: 2px;
+    border-top: 4px solid #00aeef;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #000;
+    counter-reset: line;
+    }
+    pre span {
+    display: block;
+    line-height: 1.5rem;
+    }
+    pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888
+    }
+    span{
+        font-family: monospace;
+        font-size: 16px;
+    }
+    </style>
 <script src="script.js"></script>
 <div id="navigation">
 <button onclick="navigateTo('prev')">Previous Day</button>
 <button onclick="navigateTo('next')">Next Day</button>
 </div>
 <h1>Day 04</h1>
+<h1>Day 04</h1>
 <pre>
-# puzzle prompt: https://adventofcode.com/2019/day/4
-
-import time
-import sys
-sys.path.insert(0,"..")
-
-from base.advent import *
-import re
-
-class Solution(InputAsLinesSolution):
-    _year = 2019
-    _day = 4
-
-    LOWERBOUND_RANGE = 359_282 # from puzzle
-    UPPERBOUND_RANGE = 820_401 # from puzzle
-
-    def is_ascending(self, password):
-        highest = 0
-        for chr in password:
-            if int(chr) >= highest:
-                highest = int(chr)
-            else:
-                return False
-        return True
-
-    #what is not to love about regexes??
-
-    def any_repeated_digits(self, password):
-        pattern = r"^.*(\d)\1.*$"
-        return re.match(pattern, password)
-    
-    def exactly_two_repeated_digits(self, password):        
-        #          group captured  
-        #            1st digit
-        #               |              2nd digit
-        #               v                 v
-        pattern = r"^.*(\d)(?&lt;!(?=\1)\1\1)\1(?!\1)"
-        #                    ^                ^     
-        #                    |                |
-        #             not happen before       |
-        #                               not happen after
-        #
-        # this part is tricky (&lt;!(?=\1)\1\1)
-        # i am saying that i go before the group and look ahead
-        # there will be already one digit (the group itself, the part (?=\1))
-        # and then cannot be 2 more of then after it, the \1\1 part, 
-        #which then make three and it is not allowed
-        
-        return re.match(pattern, password)
-
-    def is_valid_password(self, password, check_repeated_digits):
-        if not self.is_ascending(password):
-            return False
-
-        if not check_repeated_digits(password):
-            return False
-            
-        return True
-
-    def count_valid_passwords(self, condition):
-        valid_passwords = []
-        password_range = range(self.LOWERBOUND_RANGE, self.UPPERBOUND_RANGE + 1)
-
-        for password in password_range:
-            if self.is_valid_password(str(password), condition):
-                valid_passwords.append(password)
-                            
-        return len(valid_passwords)
-
-    def part_1(self):
-        start_time = time.time()
-
-        res = self.count_valid_passwords(self.any_repeated_digits)
-
-        end_time = time.time()
-
-        self.solve("1", res, (end_time - start_time))
-
-    def part_2(self):
-        start_time = time.time()
-
-        res = self.count_valid_passwords(self.exactly_two_repeated_digits)
-
-        end_time = time.time()
-
-        self.solve("2", res, (end_time - start_time))
-
-if __name__ == '__main__':
-    solution = Solution()
-
-    solution.part_1()
-    
-    solution.part_2()
+<span># puzzle prompt: https://adventofcode.com/2019/day/4</span>
+<span></span>
+<span>import time</span>
+<span>import sys</span>
+<span>sys.path.insert(0,"..")</span>
+<span></span>
+<span>from base.advent import *</span>
+<span>import re</span>
+<span></span>
+<span>class Solution(InputAsLinesSolution):</span>
+<span>    _year = 2019</span>
+<span>    _day = 4</span>
+<span></span>
+<span>    LOWERBOUND_RANGE = 359_282 # from puzzle</span>
+<span>    UPPERBOUND_RANGE = 820_401 # from puzzle</span>
+<span></span>
+<span>    def is_ascending(self, password):</span>
+<span>        highest = 0</span>
+<span>        for chr in password:</span>
+<span>            if int(chr) >= highest:</span>
+<span>                highest = int(chr)</span>
+<span>            else:</span>
+<span>                return False</span>
+<span>        return True</span>
+<span></span>
+<span>    #what is not to love about regexes??</span>
+<span></span>
+<span>    def any_repeated_digits(self, password):</span>
+<span>        pattern = r"^.*(\d)\1.*$"</span>
+<span>        return re.match(pattern, password)</span>
+<span>    </span>
+<span>    def exactly_two_repeated_digits(self, password):        </span>
+<span>        #          group captured  </span>
+<span>        #            1st digit</span>
+<span>        #               |              2nd digit</span>
+<span>        #               v                 v</span>
+<span>        pattern = r"^.*(\d)(?<!(?=\1)\1\1)\1(?!\1)"</span>
+<span>        #                    ^                ^     </span>
+<span>        #                    |                |</span>
+<span>        #             not happen before       |</span>
+<span>        #                               not happen after</span>
+<span>        #</span>
+<span>        # this part is tricky (<!(?=\1)\1\1)</span>
+<span>        # i am saying that i go before the group and look ahead</span>
+<span>        # there will be already one digit (the group itself, the part (?=\1))</span>
+<span>        # and then cannot be 2 more of then after it, the \1\1 part, </span>
+<span>        #which then make three and it is not allowed</span>
+<span>        </span>
+<span>        return re.match(pattern, password)</span>
+<span></span>
+<span>    def is_valid_password(self, password, check_repeated_digits):</span>
+<span>        if not self.is_ascending(password):</span>
+<span>            return False</span>
+<span></span>
+<span>        if not check_repeated_digits(password):</span>
+<span>            return False</span>
+<span>            </span>
+<span>        return True</span>
+<span></span>
+<span>    def count_valid_passwords(self, condition):</span>
+<span>        valid_passwords = []</span>
+<span>        password_range = range(self.LOWERBOUND_RANGE, self.UPPERBOUND_RANGE + 1)</span>
+<span></span>
+<span>        for password in password_range:</span>
+<span>            if self.is_valid_password(str(password), condition):</span>
+<span>                valid_passwords.append(password)</span>
+<span>                            </span>
+<span>        return len(valid_passwords)</span>
+<span></span>
+<span>    def part_1(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.count_valid_passwords(self.any_repeated_digits)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("1", res, (end_time - start_time))</span>
+<span></span>
+<span>    def part_2(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.count_valid_passwords(self.exactly_two_repeated_digits)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("2", res, (end_time - start_time))</span>
+<span></span>
+<span>if __name__ == '__main__':</span>
+<span>    solution = Solution()</span>
+<span></span>
+<span>    solution.part_1()</span>
+<span>    </span>
+<span>    solution.part_2()</span>
 </pre>

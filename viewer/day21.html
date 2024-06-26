@@ -1,101 +1,130 @@
-<style>pre{font-size: large;}</style>
+<style>
+        pre {
+    background: #303030;
+    color: #f1f1f1;
+    padding: 10px 16px;
+    border-radius: 2px;
+    border-top: 4px solid #00aeef;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #000;
+    counter-reset: line;
+    }
+    pre span {
+    display: block;
+    line-height: 1.5rem;
+    }
+    pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888
+    }
+    span{
+        font-family: monospace;
+        font-size: 16px;
+    }
+    </style>
 <script src="script.js"></script>
 <div id="navigation">
 <button onclick="navigateTo('prev')">Previous Day</button>
 <button onclick="navigateTo('next')">Next Day</button>
 </div>
 <h1>Day 21</h1>
+<h1>Day 21</h1>
 <pre>
-# puzzle prompt: https://adventofcode.com/2019/day/21
-
-import time
-import sys
-sys.path.insert(0,"..")
-
-from base.advent import *
-from base.computer import *
-
-class Solution(InputAsIntCSVLineSolution):
-    _year = 2019
-    _day = 21
-
-    def program_springdroid(self, code):
-        #springdroid jumps 4 steps at a time
-        # jump from anywhere if D is safe (AND D J)
-
-        instruction =   "NOT C J\n" + \
-                        "NOT A T\n" + \
-                        "OR T J\n"  + \
-                        "NOT B T\n" + \
-                        "OR T J\n"  + \
-                        "AND D J\n" + \
-                        "WALK\n"
-        
-        computer = Computer(code)
-        computer.inputs.extend([ord(char) for char in instruction])
-        while not computer.done:
-            try:
-                computer.run()
-            except OutputEmmitted:
-                output = computer.outputs[-1]
-                if output > 255:    # it will use an output instruction to indicate the damage
-                    return output   # as a single giant integer outside the normal ASCII range
-
-        return 0
-    
-    def enable_extended_mode(self, code):
-        #springdroid jumps 4 steps at a time
-        # jump from anywhere if D is safe (AND D J)(same as walk mode)
-        # if we jump to D and E is not safe, we can jump if H is safe (H = 8 -> 4 + 4)(AND H T)
-        # or go to E if safe (OR E T)
-        # if no need to jump, then run
-
-        instruction =   "NOT C J\n" + \
-                        "NOT A T\n" + \
-                        "OR T J\n"  + \
-                        "NOT B T\n" + \
-                        "OR T J\n"  + \
-                        "AND D J\n" + \
-                        "NOT E T\n" + \
-                        "AND H T\n" + \
-                        "OR E T\n"  + \
-                        "AND T J\n" + \
-                        "RUN\n"
-
-        computer = Computer(code)
-        computer.inputs.extend([ord(char) for char in instruction])
-        while not computer.done:
-            try:
-                computer.run()
-            except OutputEmmitted:
-                output = computer.outputs[-1]
-                if output > 255:    # it will use an output instruction to indicate the damage
-                    return output   # as a single giant integer outside the normal ASCII range
-
-        return 0
-
-    def part_1(self):
-        start_time = time.time()
-
-        res = self.program_springdroid(self.input)
-
-        end_time = time.time()
-
-        self.solve("1", res, (end_time - start_time))
-
-    def part_2(self):
-        start_time = time.time()
-
-        res = self.enable_extended_mode(self.input)
-
-        end_time = time.time()
-
-        self.solve("2", res, (end_time - start_time))
-
-if __name__ == '__main__':
-    solution = Solution()
-
-    solution.part_1()
-    
-    solution.part_2()
+<span># puzzle prompt: https://adventofcode.com/2019/day/21</span>
+<span></span>
+<span>import time</span>
+<span>import sys</span>
+<span>sys.path.insert(0,"..")</span>
+<span></span>
+<span>from base.advent import *</span>
+<span>from base.computer import *</span>
+<span></span>
+<span>class Solution(InputAsIntCSVLineSolution):</span>
+<span>    _year = 2019</span>
+<span>    _day = 21</span>
+<span></span>
+<span>    def program_springdroid(self, code):</span>
+<span>        #springdroid jumps 4 steps at a time</span>
+<span>        # jump from anywhere if D is safe (AND D J)</span>
+<span></span>
+<span>        instruction =   "NOT C J\n" + \</span>
+<span>                        "NOT A T\n" + \</span>
+<span>                        "OR T J\n"  + \</span>
+<span>                        "NOT B T\n" + \</span>
+<span>                        "OR T J\n"  + \</span>
+<span>                        "AND D J\n" + \</span>
+<span>                        "WALK\n"</span>
+<span>        </span>
+<span>        computer = Computer(code)</span>
+<span>        computer.inputs.extend([ord(char) for char in instruction])</span>
+<span>        while not computer.done:</span>
+<span>            try:</span>
+<span>                computer.run()</span>
+<span>            except OutputEmmitted:</span>
+<span>                output = computer.outputs[-1]</span>
+<span>                if output > 255:    # it will use an output instruction to indicate the damage</span>
+<span>                    return output   # as a single giant integer outside the normal ASCII range</span>
+<span></span>
+<span>        return 0</span>
+<span>    </span>
+<span>    def enable_extended_mode(self, code):</span>
+<span>        #springdroid jumps 4 steps at a time</span>
+<span>        # jump from anywhere if D is safe (AND D J)(same as walk mode)</span>
+<span>        # if we jump to D and E is not safe, we can jump if H is safe (H = 8 -> 4 + 4)(AND H T)</span>
+<span>        # or go to E if safe (OR E T)</span>
+<span>        # if no need to jump, then run</span>
+<span></span>
+<span>        instruction =   "NOT C J\n" + \</span>
+<span>                        "NOT A T\n" + \</span>
+<span>                        "OR T J\n"  + \</span>
+<span>                        "NOT B T\n" + \</span>
+<span>                        "OR T J\n"  + \</span>
+<span>                        "AND D J\n" + \</span>
+<span>                        "NOT E T\n" + \</span>
+<span>                        "AND H T\n" + \</span>
+<span>                        "OR E T\n"  + \</span>
+<span>                        "AND T J\n" + \</span>
+<span>                        "RUN\n"</span>
+<span></span>
+<span>        computer = Computer(code)</span>
+<span>        computer.inputs.extend([ord(char) for char in instruction])</span>
+<span>        while not computer.done:</span>
+<span>            try:</span>
+<span>                computer.run()</span>
+<span>            except OutputEmmitted:</span>
+<span>                output = computer.outputs[-1]</span>
+<span>                if output > 255:    # it will use an output instruction to indicate the damage</span>
+<span>                    return output   # as a single giant integer outside the normal ASCII range</span>
+<span></span>
+<span>        return 0</span>
+<span></span>
+<span>    def part_1(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.program_springdroid(self.input)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("1", res, (end_time - start_time))</span>
+<span></span>
+<span>    def part_2(self):</span>
+<span>        start_time = time.time()</span>
+<span></span>
+<span>        res = self.enable_extended_mode(self.input)</span>
+<span></span>
+<span>        end_time = time.time()</span>
+<span></span>
+<span>        self.solve("2", res, (end_time - start_time))</span>
+<span></span>
+<span>if __name__ == '__main__':</span>
+<span>    solution = Solution()</span>
+<span></span>
+<span>    solution.part_1()</span>
+<span>    </span>
+<span>    solution.part_2()</span>
 </pre>
