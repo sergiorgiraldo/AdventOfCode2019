@@ -71,13 +71,13 @@
 <span>        #            1st digit</span>
 <span>        #               |              2nd digit</span>
 <span>        #               v                 v</span>
-<span>        pattern = r"^.*(\d)(?<!(?=\1)\1\1)\1(?!\1)"</span>
+<span>        pattern = r"^.*(\d)(?&lt;!(?=\1)\1\1)\1(?!\1)"</span>
 <span>        #                    ^                ^     </span>
 <span>        #                    |                |</span>
 <span>        #             not happen before       |</span>
 <span>        #                               not happen after</span>
 <span>        #</span>
-<span>        # this part is tricky (<!(?=\1)\1\1)</span>
+<span>        # this part is tricky (&lt;!(?=\1)\1\1)</span>
 <span>        # i am saying that i go before the group and look ahead</span>
 <span>        # there will be already one digit (the group itself, the part (?=\1))</span>
 <span>        # and then cannot be 2 more of then after it, the \1\1 part, </span>
