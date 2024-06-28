@@ -63,7 +63,6 @@ if __name__ == "__main__":
     contents_day += "</div>\n"
 
     contents_day += "<h1>Day " + __day + "</h1>\n"
-    contents_day += "<h1>Day " + __day + "</h1>\n"
     lines = contents_script.split('\n') 
     wrapped_lines = [f'<span>{line}</span>' for line in lines]
     contents_script = '\n'.join(wrapped_lines)
