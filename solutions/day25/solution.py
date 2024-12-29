@@ -17,12 +17,12 @@ class Solution(InputAsIntCSVLineSolution):
         def oppositeDoor(direction):
             opp = {"north": "south", "south": "north", "east": "west", "west": "east"}
             return opp[direction]
-
+        
         ignoredItems = set(["infinite loop", "molten lava", "giant electromagnet", "photons", "escape pod"])
-
+        
         computer = Computer(code)
         computer.run()
-
+        
         # Store the command list that reaches the final room with the maximum amount of items
         finalState = None
         maxItemsFound = 0
