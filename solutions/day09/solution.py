@@ -13,7 +13,9 @@ class Solution(InputAsIntCSVLineSolution):
 
     def run_program(self, code, input_value):
         computer = Computer(code)
+
         computer.inputs.append(input_value)
+        
         while not computer.done:
             try:
                 computer.run()
